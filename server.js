@@ -21,7 +21,6 @@ app.use(cors());
 
 // where the server will look for pages to serve the browser
 app.use(express.static('./public'));
-app.use(express.static('./views'));
 
 // decode our POST data
 app.use(express.urlencoded({ extended: true }));
@@ -42,7 +41,8 @@ app.get('/searches/new', (request, response) => {
     const author = request.query.author;
     // const title = 'grace';
     // const author = 'cody';
-    response.status(200).send(title + ' ' + author);
+    // response.status(200).send(title + ' ' + author);
+    response.render('pages/searches/new', { author: author});
 });
 
 // start our server
