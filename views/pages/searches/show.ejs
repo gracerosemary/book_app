@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show</title>
+</head>
+<body>
+    <h1>Best Books!</h1>
+    <h2>Search Results</h2>
+    <form action="/searches/show" method="POST">
+    <main>
+        <% results.forEach(book => { %>
+            <img src="<%= book.image %>">
+            <h2><%= book.title %></h2>
+            <h3><%= book.author %></h3>
+            <p><%= book.description %></p>
+      <% }) %>
+    </main>
+    </form>
+</body>
+</html>
