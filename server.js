@@ -31,6 +31,7 @@ app.set('view engine', 'ejs');
 app.get('/test', testHello);
 app.get('/searches/new', newSearch);
 app.post('/searches', bookSearch);
+app.get('/error', errorHandler);
 
 // Handlers
 function testHello(request, response) {
@@ -63,6 +64,11 @@ function bookSearch(request, response) {
     });
 }
 
+// error handler
+function errorHandler(request, response) {
+    response.status(500).render('pages/error');
+}
+
 // constructor function
 // properties needed: image, title name, author name, book description (under volumeInfo)
 function Book(obj) {
@@ -75,8 +81,6 @@ function Book(obj) {
     ? obj.volumeInfo.description
     : 'Description not available';
 }
-
-// error handler
 
 // start our server
 app.listen(PORT, () => console.log(`Now listening on port ${PORT}.`));
