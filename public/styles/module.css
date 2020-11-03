@@ -1,46 +1,44 @@
-/* mobile */
-@media only screen and (max-width: 600px) {
-    #header {
-        width: 480px;
-        height: 100px;
-        line-height: 100px;
-        padding-left: 10px;
-    }
-
-    #subheader {
-        width: 480px;
-        height: 50px;
-        line-height: 50px;
-        padding-left: 10px;
-    }
-    
-    #search2 {
-        width: 480px;
-        height: 80px;
-        line-height: 80px;
-        padding-left: 10px;
-    }
-
-    #title {
-        width: 480px;
-        height: 80px;
-        line-height: 80px;
-        padding-left: 10px;
-    }
-    
-    #author {
-        width: 480px;
-        height: 80px;
-        line-height: 80px;
-        padding-left: 10px;
-    }
-    
-
-    button {
-        width: 480px;
-        height: 50px;
-        line-height: 50px;
-        padding-left: 10px;
-    }
-    
+#header {
+    width: 480px;
+    height: 100px;
+    line-height: 100px;
+    padding-left: 10px;
 }
+
+#subheader {
+    width: 480px;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 10px;
+}
+
+#search2 {
+    width: 480px;
+    height: 80px;
+    line-height: 80px;
+    padding-left: 10px;
+}
+
+#title {
+    width: 480px;
+    height: 80px;
+    line-height: 80px;
+    padding-left: 10px;
+}
+
+#author {
+    width: 480px;
+    height: 80px;
+    line-height: 80px;
+    padding-left: 10px;
+}
+
+
+button {
+    width: 480px;
+    height: 50px;
+    line-height: 50px;
+    /* padding-left: 10px;
+    padding-right: 10px; */
+}
+    
