@@ -45,6 +45,9 @@ function newSearch(request, response) {
 function bookSearch(request, response) {
     let search = request.body.search[0];
     let searchCategory = request.body.search[1];
+    let queryParams = {
+      limit: 10
+    };
 
     let url = `https://www.googleapis.com/books/v1/volumes?q=`;
     if (searchCategory === 'title') {
@@ -55,6 +58,7 @@ function bookSearch(request, response) {
     }
 
   superagent.get(url)
+    .query(queryParams)
     .then(results => {
       let returned = results.body.items;
       let arr = returned.map((bookResults) => {

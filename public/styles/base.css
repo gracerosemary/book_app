@@ -1,3 +1,8 @@
 body {
-    background-color: rgba(230, 154, 89, 0.568);
+    font-family: 'Stint Ultra Condensed', cursive;
+    position: relative;
+    background-color: #B0A1BA;
+    display: grid;
+    justify-items: center;
+    width: 100%;
 }
