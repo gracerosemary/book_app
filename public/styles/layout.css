@@ -1,0 +1,50 @@
+/* mobile */
+@media only screen and (max-width: 600px) {
+    #header {
+        font-size: 26px;
+        background-color: #84AEAD;
+        color: #CEC4D4;
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: #55455F;
+        outline: solid .5px #55455F;
+    }
+
+    #subheader {
+        font-size: 20px;
+        background-color: #ABC8C7;
+        color: #D8D0DD;
+        -webkit-text-stroke-width: 1.5px;
+        -webkit-text-stroke-color: #55455F;
+        text-align: center;
+        outline: solid .5px #55455F;
+    }
+
+    #search2 {
+        font-size: 18px;
+        background-color: #ABC8C7;
+        color: #55455F;
+        outline: solid .5px #55455F;
+        margin-top: 30px;
+    }
+
+    #title, #author {
+        font-size: 20px;
+        background-color: #84AEAD;
+        color: #55455F;
+        outline: solid .5px #55455F;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    button {
+        font-size: 16px;
+        background-color: #ABC8C7;
+        color: #55455F;
+        border-radius: 2px;
+    }
+    
+    button:hover {
+        background-color: #A5B5BF;
+        color: #F2FDFF;
+    }
+}

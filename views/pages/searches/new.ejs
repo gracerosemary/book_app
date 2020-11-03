@@ -4,29 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Search</title>
+    <link rel="stylesheet" href="/styles/base.css">
+    <link rel="stylesheet" href="/styles/layout.css">
+    <link rel="stylesheet" href="/styles/module.css">
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Stint+Ultra+Condensed&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Best Books!</h1>
-    <h2>Search by Title or Author</h2>
+    <div id="header">
+        <h1>Best Books!</h1>
+    </div>
+    <div id="subheader">
+        <h2>Search by Title or Author</h2>
+    </div>
     <form action="/searches" method="POST">
         <fieldset>
-            <label>
-                <input type="text" name="search" placeholder="Enter a title or author">
-            </label>
-            </br>   
-            <label>
-                <span>Title</span>
-                <input type="radio" name="search" value="title">
-            </label>
-            </br>
-            <label>
-                <span>Author</span>
-                <input type="radio" name="search" value="author">
-            </label>
-            </br>
-            <button>Search the Google Books API</button>
+            <div id="search">
+                <label>
+                    <input id="search2" type="text" name="search" placeholder="Enter a title or author">
+                </label>
+            </div>
+            <div id="title">
+                <label>
+                    <span>Title</span>
+                    <input type="radio" name="search" value="title">
+                </label>
+            </div>   
+            <div id="author">
+                <label>
+                    <span>Author</span>
+                    <input type="radio" name="search" value="author">
+                </label>
+            </div>
+            <div id="button">
+                <button>Search the Google Books API</button>
+            </div>
         </fieldset>
     </form>
-
 </body>
 </html>
