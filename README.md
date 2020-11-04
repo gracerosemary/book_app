@@ -28,8 +28,8 @@ Actual time needed to complete: 10 minutes
 Feature: 5 - As a user, I want a simple, clean looking UI so that my application is easy to navigate.
 Estimate of time needed to complete: 60 minutes 
 Start time: 8:30 PM 
-Finish time:  
-Actual time needed to complete: 
+Finish time: 7:30 PM
+Actual time needed to complete: 120 minutes (2 days)
 
 ## Overview
 Lab 11 (completed features only):
@@ -39,14 +39,15 @@ Lab 11 (completed features only):
 4. Integrate Google Books API and load form
 5. Create book routes and constructor
 6. Create error handlers
+7. Styling (CSS)
 
 Need to complete: 
-7. Styling (CSS)
 8. Welcome page setup
 
 ## Change Log
 10.31.20 - Features 1-4 completed
-11.2.20 - Fixed Heroku Deployment
+11.2.20 - Fixed Heroku Deployment, Added styling to one page (search page)
+11.3.20 - Added styling to second page (results page)
 
 ## Credits and Collaborations
 Lab11 Code Partner: Cody Carpenter
