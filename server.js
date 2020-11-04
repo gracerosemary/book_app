@@ -28,13 +28,13 @@ app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
 // routes
-app.get('/test', testHello);
+app.get('/', home);
 app.get('/searches/new', newSearch);
 app.post('/searches', bookSearch);
 app.get('/error', errorHandler);
 
 // Handlers
-function testHello(request, response) {
+function home(request, response) {
     response.status(200).render('pages/index');
 }
 
@@ -76,14 +76,10 @@ function errorHandler(request, response) {
 // constructor function
 // properties needed: image, title name, author name, book description (under volumeInfo)
 function Book(obj) {
-  this.image = obj.volumeInfo.imageLinks.thumbnail
-    ? obj.volumeInfo.imageLinks.thumbnail
-    : `https://i.imgur.com/J5LVHEL.jpg`;
+  this.image = obj.volumeInfo.imageLinks.thumbnail ? obj.volumeInfo.imageLinks.thumbnail : `https://i.imgur.com/J5LVHEL.jpg`;
   this.title = obj.volumeInfo.title ? obj.volumeInfo.title : 'Title not available';
   this.author = obj.volumeInfo.authors ? obj.volumeInfo.authors : 'Author(s) not available';
-  this.description = obj.volumeInfo.description
-    ? obj.volumeInfo.description
-    : 'Description not available';
+  this.description = obj.volumeInfo.description ? obj.volumeInfo.description : 'Description not available';
 }
 
 // start our server
