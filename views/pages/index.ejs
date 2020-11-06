@@ -9,7 +9,19 @@
 <body>
     <form action="/" method="POST">
     <h2>Book App Homepage</h2>
-    <p>This will soon display a collection of books. Stand by for updates.</p>
+    <section>
+        <ul>
+            <% books.forEach(book => { %>
+                <li>
+                    <h4> <%= book.title %></h4>
+                    <p> <%= book.author %></p>
+                    <p> <%= book.description %></p>
+                    <p> <%= book.id %></p>
+                    <a href="/books/<%= book.id %>">View details</a>
+                </li>
+            <% }) %>
+        </ul>
+    </section>
     </form>
 </body>
 </html>
