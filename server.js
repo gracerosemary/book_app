@@ -5,6 +5,7 @@
 const express = require('express');
 const superagent = require('superagent');
 const cors = require('cors');
+const pg = require('pg');
 
 // configure env file to allow variables to be listened to
 require('dotenv').config();
@@ -31,11 +32,19 @@ app.set('view engine', 'ejs');
 app.get('/', home);
 app.get('/searches/new', newSearch);
 app.post('/searches', bookSearch);
+app.get('/books/:id', singleBook);
 app.get('/error', errorHandler);
 
 // Handlers
 function home(request, response) {
-    response.status(200).render('pages/index');
+  console.log('work please');
+  const SQL = 'SELECT * FROM books;';
+  client.query(SQL)
+    .then(results => {
+      console.log('work please');
+      console.log(results.rows);
+      response.status(200).render('pages/index', { 'books': results.rows });
+    });
 }
 
 function newSearch(request, response) {
@@ -68,6 +77,17 @@ function bookSearch(request, response) {
     });
 }
 
+function singleBook(request, response) {
+  console.log(request.params);
+  const SQL = 'SELECT * FROM books WHERE id=$1';
+  const params = [request.params.books_id];
+  client.query(SQL, params)
+    .then(results => {
+      console.log(results.rows);
+      response.render('pages/books/detail', { book: results.rows});
+    });
+}
+
 // error handler
 function errorHandler(request, response) {
     response.status(500).render('pages/error');
@@ -81,6 +101,11 @@ function Book(obj) {
   this.author = obj.volumeInfo.authors ? obj.volumeInfo.authors : 'Author(s) not available';
   this.description = obj.volumeInfo.description ? obj.volumeInfo.description : 'Description not available';
 }
+
+// create our postgres client
+const client = new pg.Client(process.env.DATABASE_URL);
+client.connect();
+client.on('error', err => console.log(err));
 
 // start our server
 app.listen(PORT, () => console.log(`Now listening on port ${PORT}.`));
