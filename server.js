@@ -11,7 +11,7 @@ const pg = require('pg');
 require('dotenv').config();
 
 // create port - process.env object - process is a dotenv method
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // start express application
 const app = express();
@@ -33,7 +33,7 @@ app.get('/', home);
 app.get('/searches/new', newSearch);
 app.post('/searches', bookSearch);
 app.get('/books/:id', singleBook);
-app.post('/books', addBook)
+app.post('/books', addBook);
 app.get('/error', errorHandler);
 
 // Handlers
@@ -54,22 +54,22 @@ function singleBook(request, response) {
   client.query(SQL, params)
     .then(results => {
       console.log(results.rows);
-      response.render('pages/books/detail', { book: results.rows[0]});
+      response.render('pages/books/detail', { 'results': [results.rows[0]]});
     });
 }
 
 function addBook(request, response) {
-  const SQL = 'INSERT INTO books (title, author, description, isbn, image) VALUES ($1, $2, $3, $4, $5) RETURNING *';
+  const SQL = 'INSERT INTO books (title, author, description, isbn, image) VALUES ($1, $2, $3, $4, $5) RETURNING id';
   const params = [request.body.title, request.body.author, request.body.description, request.body.isbn, request.body.image];
   console.log('is this thing on?');
   client.query(SQL, params)
   .then(results => {
-    console.log(request.rows[0]);
-      response.status(200).redirect('/pages/books')
-    })
+      console.log(results);
+      // response.status(200).redirect('pages/books');
+      // results.row retrieves from db
+      response.status(200).redirect(`/books/${results.rows[0].id}`);
+    });
 }
-
-
 
 function newSearch(request, response) {
     response.status(200).render('pages/searches/new');
@@ -110,7 +110,7 @@ function errorHandler(request, response) {
 
 // constructor function
 function Book(obj) {
-  this.image = obj.volumeInfo.imageLinks ? obj.volumeInfo.imageLinks : `https://i.imgur.com/J5LVHEL.jpg`;
+  this.image = obj.volumeInfo.imageLinks ? obj.volumeInfo.imageLinks.thumbnail : `https://i.imgur.com/J5LVHEL.jpg`;
   this.title = obj.volumeInfo.title ? obj.volumeInfo.title : 'Title not available';
   this.author = obj.volumeInfo.authors ? obj.volumeInfo.authors : 'Author(s) not available';
   this.description = obj.volumeInfo.description ? obj.volumeInfo.description : 'Description not available';
@@ -121,7 +121,7 @@ function Book(obj) {
 const client = new pg.Client(process.env.DATABASE_URL);
 client.connect();
 client.on('error', err => console.log(err));
-// console.log(client.connectionParameters);
+console.log(client.connectionParameters);
 
 // start our server
 app.listen(PORT, () => console.log(`Now listening on port ${PORT}.`));
