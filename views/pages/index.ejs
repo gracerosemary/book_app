@@ -5,22 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book App</title>
     <link rel="stylesheet" href="/styles/base.css">
+    <link rel="stylesheet" href="/styles/layout.css">
 </head>
 <body>
     <form action="/" method="POST">
-    <h2>Book App Homepage</h2>
+    <h1>Book App Homepage</h1>
     <section>
-        <ul>
             <% books.forEach(book => { %>
-                <li>
                     <h4> <%= book.title %></h4>
                     <p> <%= book.author %></p>
                     <p> <%= book.description %></p>
                     <p> <%= book.id %></p>
                     <a href="/books/<%= book.id %>">View details</a>
-                </li>
             <% }) %>
-        </ul>
     </section>
     </form>
 </body>

@@ -33,6 +33,7 @@ app.get('/', home);
 app.get('/searches/new', newSearch);
 app.post('/searches', bookSearch);
 app.get('/books/:id', singleBook);
+app.post('/books', addBook)
 app.get('/error', errorHandler);
 
 // Handlers
@@ -49,12 +50,26 @@ function singleBook(request, response) {
   // console.log(request.params.id);
   const SQL = 'SELECT * FROM books WHERE id=$1';
   const params = [request.params.id];
+  console.log('testing check check');
   client.query(SQL, params)
     .then(results => {
       console.log(results.rows);
       response.render('pages/books/detail', { book: results.rows[0]});
     });
 }
+
+function addBook(request, response) {
+  const SQL = 'INSERT INTO books (title, author, description, isbn, image) VALUES ($1, $2, $3, $4, $5) RETURNING *';
+  const params = [request.body.title, request.body.author, request.body.description, request.body.isbn, request.body.image];
+  console.log('is this thing on?');
+  client.query(SQL, params)
+  .then(results => {
+    console.log(request.rows[0]);
+      response.status(200).redirect('/pages/books')
+    })
+}
+
+
 
 function newSearch(request, response) {
     response.status(200).render('pages/searches/new');
@@ -99,12 +114,14 @@ function Book(obj) {
   this.title = obj.volumeInfo.title ? obj.volumeInfo.title : 'Title not available';
   this.author = obj.volumeInfo.authors ? obj.volumeInfo.authors : 'Author(s) not available';
   this.description = obj.volumeInfo.description ? obj.volumeInfo.description : 'Description not available';
+  this.isbn = obj.volumeInfo.industryIdentifiers[1] ? obj.volumeInfo.industryIdentifiers[1]  : 'ISBN not available';
 }
 
 // create our postgres client
 const client = new pg.Client(process.env.DATABASE_URL);
 client.connect();
 client.on('error', err => console.log(err));
+// console.log(client.connectionParameters);
 
 // start our server
 app.listen(PORT, () => console.log(`Now listening on port ${PORT}.`));
