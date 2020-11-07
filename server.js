@@ -37,13 +37,22 @@ app.get('/error', errorHandler);
 
 // Handlers
 function home(request, response) {
-  console.log('work please');
   const SQL = 'SELECT * FROM books;';
   client.query(SQL)
+  .then(results => {
+    console.log(results.rows);
+    response.status(200).render('pages/index', { 'books': results.rows });
+  });
+}
+
+function singleBook(request, response) {
+  // console.log(request.params.id);
+  const SQL = 'SELECT * FROM books WHERE id=$1';
+  const params = [request.params.id];
+  client.query(SQL, params)
     .then(results => {
-      console.log('work please');
       console.log(results.rows);
-      response.status(200).render('pages/index', { 'books': results.rows });
+      response.render('pages/books/detail', { book: results.rows[0]});
     });
 }
 
@@ -77,16 +86,6 @@ function bookSearch(request, response) {
     });
 }
 
-function singleBook(request, response) {
-  console.log(request.params);
-  const SQL = 'SELECT * FROM books WHERE id=$1';
-  const params = [request.params.books_id];
-  client.query(SQL, params)
-    .then(results => {
-      console.log(results.rows);
-      response.render('pages/books/detail', { book: results.rows});
-    });
-}
 
 // error handler
 function errorHandler(request, response) {
