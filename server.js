@@ -78,9 +78,9 @@ function newSearch(request, response) {
 function bookSearch(request, response) {
     let search = request.body.search[0];
     let searchCategory = request.body.search[1];
-    let queryParams = {
-      limit: 10
-    };
+    // let queryParams = {
+    //   limit: 10
+    // };
 
     let url = `https://www.googleapis.com/books/v1/volumes?q=`;
     if (searchCategory === 'title') {
@@ -91,13 +91,14 @@ function bookSearch(request, response) {
     }
 
   superagent.get(url)
-    .query(queryParams)
+    // .query(queryParams)
     .then(results => {
       let returned = results.body.items;
       let arr = returned.map((bookResults) => {
         return new Book(bookResults);
       });
-    response.status(200).render('pages/searches/show', { results: arr});
+      console.log(arr);
+      response.status(200).render('pages/searches/show', { results: arr});
     });
 }
 
@@ -108,13 +109,12 @@ function errorHandler(request, response) {
 }
 
 // constructor function
-// properties needed: image, title name, author name, book description (under volumeInfo)
 function Book(obj) {
-  this.image = obj.volumeInfo.imageLinks.thumbnail ? obj.volumeInfo.imageLinks.thumbnail : `https://i.imgur.com/J5LVHEL.jpg`;
+  this.image = obj.volumeInfo.imageLinks ? obj.volumeInfo.imageLinks : `https://i.imgur.com/J5LVHEL.jpg`;
   this.title = obj.volumeInfo.title ? obj.volumeInfo.title : 'Title not available';
   this.author = obj.volumeInfo.authors ? obj.volumeInfo.authors : 'Author(s) not available';
   this.description = obj.volumeInfo.description ? obj.volumeInfo.description : 'Description not available';
-  this.isbn = obj.volumeInfo.industryIdentifiers[1] ? obj.volumeInfo.industryIdentifiers[1]  : 'ISBN not available';
+  this.isbn = obj.volumeInfo.industryIdentifiers.identifiers ? obj.volumeInfo.industryIdentifiers.identifiers  : 'ISBN not available';
 }
 
 // create our postgres client
