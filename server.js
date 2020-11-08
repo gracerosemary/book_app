@@ -58,7 +58,7 @@ function singleBook(request, response) {
   client.query(SQL, params)
     .then(results => {
       console.log(results.rows);
-      response.render('pages/books/detail', { 'results': [results.rows[0]]});
+      response.render('pages/books/detail', { book: results.rows[0]});
     });
 }
 

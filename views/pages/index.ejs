@@ -6,14 +6,14 @@
 <body>
     <h1 class="homepage">Book App Homepage</h1>
     <section>
+        <ul>
             <% books.forEach(book => { %>
-                <h4 class="homepage"> <%= book.title %></h4>
-                <p class="homepage"> <%= book.author %></p>
-                <p class="homepage"> <%= book.description %></p>
-                <p class="homepage"> <%= book.image %></p> 
-                <p class="homepage"> <%= book.id %></p>
+                <li>
+                    <%- include('books/detail', {book: book}) %>
+                </li>
                 <a class="homepage" href="/books/<%= book.id %>">View details</a>
             <% }) %>
+        </ul>
     </section>
 </body>
 </html>
