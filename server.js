@@ -11,7 +11,7 @@ const pg = require('pg');
 require('dotenv').config();
 
 // create port - process.env object - process is a dotenv method
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 // start express application
 const app = express();
@@ -39,10 +39,14 @@ app.get('/error', errorHandler);
 // Handlers
 function home(request, response) {
   const SQL = 'SELECT * FROM books;';
-  client.query(SQL)
+  
+  return client.query(SQL)
   .then(results => {
     console.log(results.rows);
-    response.status(200).render('pages/index', { 'books': results.rows });
+    response.status(200).render('pages/index', { books: results.rows });
+  })
+  .catch(error => {
+    console.log(error);
   });
 }
 
