@@ -1,26 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
-    <%- include ('../layout/head’) %>
+<html lang=“en”>
+<head>
+    <meta charset=“UTF-8">
+    <meta name=“viewport” content=“width=device-width, initial-scale=1.0">
+    <title>Show</title>
+    <link rel=“stylesheet” href=“/styles/module.css”>
+</head>
 <body>
     <h1>Best Books!</h1>
-    <h2 id="subheader">Search Results</h2>
+    <h2 id=“subheader”>Search Results</h2>
     <main>
-    <form action="/searches/show" method="POST">
+    <form action=“/searches/show” method=“POST”>
             <% results.forEach(book => { %>
-                <img src="<%= book.image %>">
-                <h2 id="title"><%= book.title %></h2>
+                <img src=“<%= book.image %>“>
+                <h2 id=“title”><%= book.title %></h2>
                 <h3><%= book.author %></h3>
                 <div>
                     <p><%= book.description %></p>
                 </div>
             </form>
-            <form action="/books" method="POST">
-            <input type="hidden" name="title" value="<%= book.title %>"/>
-            <input type="hidden" name="author" value="<%= book.author %>"/>
-            <input type="hidden" name="description" value="<%= book.description %>"/>
-            <input type="hidden" name="isbn" value="<%= book.isbn %>"/>
-            <input type="hidden" name="image" value="<%= book.image %>"/>
-            <button type="submit">Save book!</button>
+            <form action=“/books” method=“POST”>
+            <input type=“hidden” name=“title” value=“<%= book.title %>“/>
+            <input type=“hidden” name=“author” value=“<%= book.author %>“/>
+            <input type=“hidden” name=“description” value=“<%= book.description %>“/>
+            <input type=“hidden” name=“isbn” value=“<%= book.isbn %>“/>
+            <input type=“hidden” name=“image” value=“<%= book.image %>“/>
+            <button type=“submit”>Save book!</button>
             </form>
       <% }) %>
     </main>
