@@ -1,11 +1,9 @@
-<section>
-          <% results.forEach(book => { %>
-            <h4> <%= book.title %></h4>
-            <p> <%= book.author %></p>
-            <p> <%= book.description %></p>
-            <p> <%= book.isbn %></p>
-            <p> <%= book.bookshelf %></p>
-            <p><%= book.image %></p> 
-            <a href="/">It's Late. Go HOME.</a>
-          <% }) %>
+<section class="detail"> 
+            <h4 class="detail"> <%= book.title %></h4>
+            <p class="detail"> <%= book.author %></p>
+            <p class="detail"> <%= book.description %></p>
+            <p class="detail"> <%= book.isbn %></p>
+            <p class="detail"> <%= book.bookshelf %></p>
+            <p class="detail"><%= book.image %></p> 
+            <a class="detail" href="/">It's Late. Go HOME.</a>
 </section>

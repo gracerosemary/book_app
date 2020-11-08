@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include ('../layout/head’) %>
-<body>
+    <head>
+        <%- include ('../../layout/head') %>
+    </head>
+<body class="detail">
     <header>
-
     </header>
-    <%- include('detail.ejs') %>
+    <%- include('detail', {book: book}) %>
 </body>
 </html>

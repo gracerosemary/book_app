@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include ('../layout/head’) %>
+    <head>
+        <%- include('../layout/head') %>
+    </head>
 <body>
-    <form action="/" method="POST">
-    <h1>Book App Homepage</h1>
+    <h1 class="homepage">Book App Homepage</h1>
     <section>
+        <ul>
             <% books.forEach(book => { %>
-                    <h4> <%= book.title %></h4>
-                    <p> <%= book.author %></p>
-                    <p> <%= book.description %></p>
-                    <p> <%= book.id %></p>
-                    <a href="/books/<%= book.id %>">View details</a>
+                <li>
+                    <%- include('books/detail', {book: book}) %>
+                </li>
+                <a class="homepage" href="/books/<%= book.id %>">View details</a>
             <% }) %>
+        </ul>
     </section>
-    </form>
 </body>
 </html>
