@@ -4,14 +4,15 @@
         <%- include('../layout/head') %>
     </head>
 <body>
-    <h1>Book App Homepage</h1>
+    <h1 class="homepage">Book App Homepage</h1>
     <section>
             <% books.forEach(book => { %>
-                    <h4> <%= book.title %></h4>
-                    <p> <%= book.author %></p>
-                    <p> <%= book.description %></p>
-                    <p> <%= book.id %></p>
-                    <a href="/books/<%= book.id %>">View details</a>
+                <h4 class="homepage"> <%= book.title %></h4>
+                <p class="homepage"> <%= book.author %></p>
+                <p class="homepage"> <%= book.description %></p>
+                <p class="homepage"> <%= book.image %></p> 
+                <p class="homepage"> <%= book.id %></p>
+                <a class="homepage" href="/books/<%= book.id %>">View details</a>
             <% }) %>
     </section>
 </body>
