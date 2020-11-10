@@ -10,7 +10,7 @@
     <main>
     <form action="/searches/show" method="POST">
             <% results.forEach(book => { %>
-                <img src="<%= book.image %>">
+                <img src=<%= book.image %>>
                 <h2 id="title"><%= book.title %></h2>
                 <h3><%= book.author %></h3>
                 <div>
