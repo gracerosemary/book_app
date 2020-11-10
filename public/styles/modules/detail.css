@@ -33,6 +33,22 @@
         line-height: 40px;
         overflow: scroll;
     }
+
+    a.detail {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30px;
+        width: 100%;
+        font-size: 16px;
+        background-color: #ABC8C7;
+        color: #55455F;
+        border-radius: 8px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        outline: solid .5px #55455F;
+    }
 }
 
 @media only screen and (min-width: 601px) {
@@ -69,5 +85,21 @@
         height: 40px;
         line-height: 40px;
         overflow: scroll;
+    }
+
+    a.detail {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30px;
+        width: 100%;
+        font-size: 16px;
+        background-color: #ABC8C7;
+        color: #55455F;
+        border-radius: 8px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        outline: solid .5px #55455F;
     }
 }
