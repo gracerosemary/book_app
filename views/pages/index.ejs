@@ -4,7 +4,11 @@
         <%- include('../layout/head') %>
     </head>
 <body>
-    <h1 class="homepage">Book App Homepage</h1>
+    <header>
+        <%- include('../layout/header') %>
+    </header>
+    <a class="homepage" href="/searches/new">This way to the library. Remember to use your inside voice! ---> </a>
+
     <section>
         <ul>
             <% books.forEach(book => { %>

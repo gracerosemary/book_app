@@ -5,7 +5,10 @@
         <link rel="stylesheet" href="/styles/modules/detail.css">
     </head>
 <body>
-    <h1>Best Books!</h1>
+    <header>
+        <%- include('../../layout/header') %>
+    </header>
+    <!-- <h1>Best Books!</h1> -->
     <h2 id="subheader">Search Results</h2>
     <main>
     <form action="/searches/show" method="POST">
@@ -23,9 +26,10 @@
             <input type="hidden" name="description" value="<%= book.description %>"/>
             <input type="hidden" name="isbn" value="<%= book.isbn %>"/>
             <input type="hidden" name="image" value="<%= book.image %>"/>
-            <button type="submit">Save book!</button>
+            <button type="submit">Ready to be checked out? Save book!</button>
             </form>
       <% }) %>
     </main>
+    <a class="detail" href="/">Library is closing in 10 minutes. [Go home]</a>
 </body>
 </html>

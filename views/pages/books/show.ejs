@@ -5,10 +5,11 @@
     </head>
 <body class="detail">
     <header>
+            <%- include('../../layout/header') %>
     </header>
     <%- include('detail', {book: book}) %>
     <section>
-        <a class="detail" href="/">It's Late. Go HOME.</a>
+        <a class="detail" href="/">Library is closing in 10 minutes. [Go home]</a>
     </section>
 </body>
 </html>

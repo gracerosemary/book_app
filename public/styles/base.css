@@ -6,3 +6,17 @@ body {
     justify-items: center;
     width: 100%;
 }
+
+.header {
+    font-size: 60px;
+    background-color: #84AEAD;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #55455F;
+    text-align: center;
+    outline: solid .5px #55455F;
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    margin-top: 15px;
+    padding: 15px;
+}

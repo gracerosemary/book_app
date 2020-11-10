@@ -118,7 +118,7 @@ function Book(obj) {
   this.title = obj.volumeInfo.title ? obj.volumeInfo.title : 'Title not available';
   this.author = obj.volumeInfo.authors ? obj.volumeInfo.authors : 'Author(s) not available';
   this.description = obj.volumeInfo.description ? obj.volumeInfo.description : 'Description not available';
-  this.isbn = obj.volumeInfo.industryIdentifiers.identifiers ? obj.volumeInfo.industryIdentifiers.identifiers  : 'ISBN not available';
+  this.isbn = obj.volumeInfo.industryIdentifiers ? obj.volumeInfo.industryIdentifiers.identifiers  : 'ISBN not available';
 }
 
 // create our postgres client

@@ -1,13 +1,4 @@
 @media only screen and (max-width: 600px) {
-    body {
-        font-family: 'Stint Ultra Condensed';
-        position: relative;
-        background-color: #B0A1BA;
-        display: grid;
-        justify-items: center;
-        width: 100%;
-    }
-
     h4.detail {
         font-size: 26px;
         background-color: #84AEAD;
@@ -52,15 +43,6 @@
 }
 
 @media only screen and (min-width: 601px) {
-    body {
-        font-family: 'Stint Ultra Condensed';
-        position: relative;
-        background-color: #B0A1BA;
-        display: grid;
-        justify-items: center;
-        width: 100%;
-    }
-
     h4.detail {
         font-size: 24px;
         background-color: #84AEAD;
