@@ -37,20 +37,10 @@
         padding-left: 10px;
     }
 
-    /* button {
-        font-size: 16px;
-        background-color: #ABC8C7;
-        color: #55455F;
-        border-radius: 8px;
-        width: 480px;
-        height: 50px;
-        line-height: 50px;
-    }
-
-    button:hover {
+    a.detail:hover {
         background-color: #A5B5BF;
         color: #F2FDFF;
-    } */
+    }
 }
 
 @media only screen and (min-width: 601px) {
@@ -91,14 +81,9 @@
         line-height: 80px;
         padding-left: 10px;
     }
-    
-    /* button {
-        font-size: 16px;
-        background-color: #ABC8C7;
-        color: #55455F;
-        border-radius: 8px;
-        width: 850px;
-        height: 50px;
-        line-height: 50px;
-    } */
+
+    a.detail:hover {
+        background-color: #A5B5BF;
+        color: #F2FDFF;
+    } 
 }
