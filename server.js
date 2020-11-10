@@ -58,7 +58,7 @@ function singleBook(request, response) {
   client.query(SQL, params)
     .then(results => {
       console.log(results.rows);
-      response.render('pages/books/detail', { book: results.rows[0]});
+      response.render('pages/books/show', { book: results.rows[0]});
     });
 }
 
@@ -125,7 +125,7 @@ function Book(obj) {
 const client = new pg.Client(process.env.DATABASE_URL);
 client.connect();
 client.on('error', err => console.log(err));
-console.log(client.connectionParameters);
+// console.log(client.connectionParameters);
 
 // start our server
 app.listen(PORT, () => console.log(`Now listening on port ${PORT}.`));
