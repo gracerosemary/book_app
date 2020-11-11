@@ -44,7 +44,7 @@
         margin-right: auto;
         margin-bottom: 10px;
         outline: solid .5px #55455F;
-        width: 10%;
+        width: 25%;
         height: 30px;
         line-height: 30px;
         overflow: scroll;
@@ -73,7 +73,7 @@
         margin-right: auto;
         margin-bottom: 10px;
         border-radius: 8px;
-        width: 30%;
+        width: 20%;
         height: 20px;
         line-height: 20px;
         overflow: scroll;
@@ -83,3 +83,8 @@
         background-color: #A5B5BF;
         color: #F2FDFF;
     }
+
+    /* input.hide {
+        display: none;
+    } */
+

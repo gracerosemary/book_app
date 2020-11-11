@@ -5,13 +5,30 @@
         margin-right: auto;
         margin-top: 10px;
         margin-bottom: 10px;
-        width: 50%;
-        font-size: 12px;
+        width: 100%;
+        font-size: 16px;
         background-color: #ABC8C7;
         color: #55455F;
         border-radius: 8px;
-        height: 20px;
-        line-height: 20px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        outline: solid .5px #55455F;
+    }
+
+    button#saveUpdates {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+        font-size: 16px;
+        background-color: #ABC8C7;
+        color: #55455F;
+        border-radius: 8px;
+        height: 50px;
+        line-height: 50px;
         text-align: center;
         outline: solid .5px #55455F;
     }
@@ -22,15 +39,32 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 15px;
-        margin-bottom: 15px;
-        width: 50%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 100%;
         font-size: 16px;
         background-color: #ABC8C7;
         color: #55455F;
         border-radius: 8px;
-        height: 35px;
-        line-height: 35px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        outline: solid .5px #55455F;
+    }
+
+    button#saveUpdates, button#updateDetails, button#deleteBook {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+        font-size: 16px;
+        background-color: #ABC8C7;
+        color: #55455F;
+        border-radius: 8px;
+        height: 50px;
+        line-height: 50px;
         text-align: center;
         outline: solid .5px #55455F;
     }

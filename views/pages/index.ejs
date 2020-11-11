@@ -15,7 +15,7 @@
                 <li>
                     <%- include('books/detail', {book: book}) %>
                 </li>
-                <a class="homepage" href="/books/<%= book.id %>">View details</a>
+                <a class="homepage" href="/books/<%=book.id%>">View details</a>
             <% }) %>
         </ul>
     </section>

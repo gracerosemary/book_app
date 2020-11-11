@@ -9,12 +9,19 @@
     </header>
     <%- include('detail', {book: book}) %>
     <section>
-        <a class="homepage" href="/books/<%= book.id %>">Update details</a>
-        <a class="homepage" href="/books/<%= book.id %>">Delete book</a>
-        <form action="/books/<%= book.id %>" ?_method="PUT" method="POST">
-            <%- include('../../layout/edit', {book: book}) %>
-            <button type="submit">Save Updates</button>
-        </form>
+        <ul>
+            <li>
+                <form action="/edit/<%=book.id%>?_method=PUT" method="POST">
+                    <%- include('../../layout/edit')%>
+                    <button id="updateDetails" type="submit">Update Details</button>
+                </form>
+            </li>
+        </ul>
+            <!-- <a class="homepage" href="/books/<%= book.id %>">Delete book</a>
+            <button id="deleteBook" type="submit">Delete Book</button> -->
+            <!-- <form action="/books/<%= book.id %>" ?_method="PUT" method="POST">
+            <button id="saveUpdates" type="submit">Save Updates</button> -->
+        <!-- </form> -->
     </section>
     <section>
         <a class="detail" href="/">Library is closing in 10 minutes. [Go home]</a>

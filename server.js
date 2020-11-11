@@ -37,7 +37,7 @@ app.get('/searches/new', newSearch);
 app.post('/searches', bookSearch);
 app.get('/books/:id', singleBook);
 app.post('/books', addBook);
-app.put('edit/:id', updateDetails);
+app.put('/edit/:id', updateDetails);
 app.get('/error', errorHandler);
 
 // Handlers
@@ -81,8 +81,9 @@ function addBook(request, response) {
 
 function updateDetails(request, response) {
   console.log('hi there');
+  console.log(request.body);
   const SQL = 'UPDATE books SET title = $1, author = $2, description = $3, isbn = $4 WHERE id = $5';
-  const params = [request.body.title, request.body.author, request.body,description, request.body.isbn, request.params.id];
+  const params = [request.body.title, request.body.author, request.body.description, request.body.isbn, request.params.id];
 
   client.query(SQL, params)
     .then(books => {
