@@ -16,7 +16,7 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
-        /* width: 25%; */
+        margin-bottom: 10px;
     }
 
     #title {
@@ -73,7 +73,7 @@
         margin-right: auto;
         margin-bottom: 10px;
         border-radius: 8px;
-        width: 10%;
+        width: 30%;
         height: 20px;
         line-height: 20px;
         overflow: scroll;
