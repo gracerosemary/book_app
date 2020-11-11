@@ -6,6 +6,7 @@ const express = require('express');
 const superagent = require('superagent');
 const cors = require('cors');
 const pg = require('pg');
+const methodOverride = require('method-override');
 
 // configure env file to allow variables to be listened to
 require('dotenv').config();
@@ -28,12 +29,15 @@ app.use(express.urlencoded({ extended: true }));
 // set default view engine and what we're using to view (ejs)
 app.set('view engine', 'ejs');
 
+app.use(methodOverride('_method'));
+
 // routes
 app.get('/', home);
 app.get('/searches/new', newSearch);
 app.post('/searches', bookSearch);
 app.get('/books/:id', singleBook);
 app.post('/books', addBook);
+app.put('edit/:id', updateDetails);
 app.get('/error', errorHandler);
 
 // Handlers
@@ -54,7 +58,7 @@ function singleBook(request, response) {
   // console.log(request.params.id);
   const SQL = 'SELECT * FROM books WHERE id=$1';
   const params = [request.params.id];
-  console.log('testing check check');
+  // console.log('testing check check');
   client.query(SQL, params)
     .then(results => {
       console.log(results.rows);
@@ -65,13 +69,24 @@ function singleBook(request, response) {
 function addBook(request, response) {
   const SQL = 'INSERT INTO books (title, author, description, isbn, image) VALUES ($1, $2, $3, $4, $5) RETURNING id';
   const params = [request.body.title, request.body.author, request.body.description, request.body.isbn, request.body.image];
-  console.log('is this thing on?');
+  // console.log('is this thing on?');
   client.query(SQL, params)
   .then(results => {
       console.log(results);
       // response.status(200).redirect('pages/books');
       // results.row retrieves from db
       response.status(200).redirect(`/books/${results.rows[0].id}`);
+    });
+}
+
+function updateDetails(request, response) {
+  console.log('hi there');
+  const SQL = 'UPDATE books SET title = $1, author = $2, description = $3, isbn = $4 WHERE id = $5';
+  const params = [request.body.title, request.body.author, request.body,description, request.body.isbn, request.params.id];
+
+  client.query(SQL, params)
+    .then(books => {
+      response.status(200).redirect(`/books/${request.params.id}`);
     });
 }
 
