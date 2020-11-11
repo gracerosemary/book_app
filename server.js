@@ -75,7 +75,8 @@ function addBook(request, response) {
       console.log(results);
       // response.status(200).redirect('pages/books');
       // results.row retrieves from db
-      response.status(200).redirect(`/books/${results.rows[0].id}`);
+      // response.status(200).redirect(`/books/${results.rows[0].id}`);
+      response.status(200).redirect('/');
     });
 }
 
