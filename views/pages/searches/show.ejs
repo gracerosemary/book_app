@@ -21,7 +21,9 @@
                 </div>
             </form>
             <form action="/books" method="POST">
-                <%- include('../../layout/edit', {book: book}) %>
+                <div class="hide">
+                    <%- include('../../layout/edit', {book: book}) %>
+                </div>
                 <input type="hidden" name="image" value="<%= book.image %>"/>
                 <button type="submit">Ready to be checked out? Save book!</button>
             </form>
