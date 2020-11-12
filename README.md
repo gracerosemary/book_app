@@ -1,57 +1,39 @@
 # BOOK APP
-### Author: Grace Choi Version: 1.0.1
+### Author: Grace Choi Version: 1.0.6
 
-Feature: 1 - As a user, I want my application to load quickly so that I have an enjoyable experience. 
-Estimate of time needed to complete: 30 minutes  
-Start time: 1:30 PM  
-Finish time: 2 PM  
-Actual time needed to complete: 30 minutes  
+### Packages
+- Express, Superagent, Cors, Postgres
 
-Feature: 2 - As a user, I want to search the Google Books API so that I can view the results of my search.  
-Estimate of time needed to complete: 30 minutes  
-Start time: 2 PM  
-Finish time: 3 PM  
+### Time Estimates
+Feature: 1 - Display saved books on homepage
+Estimate of time needed to complete: 60 minutes  
+Start time: 6:00 PM  
+Finish time: 7:00 PM 
 Actual time needed to complete: 60 minutes  
 
-Feature: 3 - As a user, I want to be able to browse the search results..  
+Feature: 2 - View details of a single book
 Estimate of time needed to complete: 60 minutes  
-Start time: 3 PM  
-Finish time: 5:30 PM  
-Actual time needed to complete: 2.5 hours  
+Start time: 7:00 PM
+Finish time: 10:00 PM
+Actual time needed to complete: 180 minutes  
 
-Feature: 4 - As a user, I want to view any error messages that occur during the usage of my book list application so that I know if something has gone wrong.   
-Estimate of time needed to complete: 10 minutes   
-Start time: 5:30 PM   
-Finish time: 5:40 PM   
-Actual time needed to complete: 10 minutes   
+Feature: 3 - Add new books 
+Estimate of time needed to complete: 60 minutes  
+Start time: 1:00 PM
+Finish time: 2:00 PM  
+Actual time needed to complete: 60 minutes
+
+Feature: 4 - Refactor for efficiency  
+Estimate of time needed to complete: 5 minutes   
+Start time: 2:00 PM   
+Finish time: 2:05 PM   
+Actual time needed to complete: 5 minutes   
 
 Feature: 5 - As a user, I want a simple, clean looking UI so that my application is easy to navigate.  
 Estimate of time needed to complete: 60 minutes   
-Start time: 8:30 PM   
+Start time: 3:30 PM   
 Finish time: 7:30 PM  
-Actual time needed to complete: 120 minutes (2 days)  
-
-Feature: 6 - As a user, I want the application to have a home page, so that I can see see relevant information.   
-Estimate of time needed to complete: 10 minutes   
-Start time: 7:30 PM   
-Finish time: 7:40 PM  
-Actual time needed to complete: 120 minutes (2 days)  
-
-## Overview
-Lab 11 (completed features only):
-1. Create server.js and dependencies
-2. Create basic HTML scaffolds for ejs files
-3. Test routes
-4. Integrate Google Books API and load form
-5. Create book routes and constructor
-6. Create error handlers
-7. Styling (CSS)
-8. Welcome page setup
-
-## Change Log
-10.31.20 - Features 1-4 completed  
-11.2.20 - Fixed Heroku Deployment, Added styling to one page (search page)  
-11.3.20 - Added styling to second page (results page), setup home page  
+Actual time needed to complete: 4 hours (took forever to figure out that route was wrong, which causes CSS not to be displayed on a single page)
 
 ## Credits and Collaborations
-Lab11 Code Partner: Cody Carpenter
+Lab12 Code Partner: Cody Carpenter
