@@ -11,7 +11,7 @@
     <!-- <h1>Best Books!</h1> -->
     <h2 id="subheader">Search Results</h2>
     <main>
-    <form action="/searches/show" method="POST">
+    <form action=“/searches/show” method=“POST”>
             <% results.forEach(book => { %>
                 <img src=<%= book.image %>>
                 <h2 id="title"><%= book.title %></h2>
