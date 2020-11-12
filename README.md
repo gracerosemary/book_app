@@ -1,39 +1,26 @@
 # BOOK APP
-### Author: Grace Choi Version: 1.0.6
+### Author: Grace Choi Version: 1.0.3
 
 ### Packages
-- Express, Superagent, Cors, Postgres
+- Express, Superagent, Cors, Postgres, Method-Override
 
 ### Time Estimates
-Feature: 1 - Display saved books on homepage
+Feature: 1 - Update details of book
 Estimate of time needed to complete: 60 minutes  
 Start time: 6:00 PM  
-Finish time: 7:00 PM 
-Actual time needed to complete: 60 minutes  
+Finish time: 10:00 PM 
+Actual time needed to complete: 4 hours (issue with updating due to typo in params)
 
-Feature: 2 - View details of a single book
-Estimate of time needed to complete: 60 minutes  
-Start time: 7:00 PM
-Finish time: 10:00 PM
-Actual time needed to complete: 180 minutes  
+Feature: 2 - Delete saved book
+Estimate of time needed to complete: 30 minutes  
+Start time: 5:00 PM
+Finish time: 5:30 PM
+Actual time needed to complete: 30 minutes  
 
-Feature: 3 - Add new books 
-Estimate of time needed to complete: 60 minutes  
-Start time: 1:00 PM
-Finish time: 2:00 PM  
-Actual time needed to complete: 60 minutes
-
-Feature: 4 - Refactor for efficiency  
-Estimate of time needed to complete: 5 minutes   
-Start time: 2:00 PM   
-Finish time: 2:05 PM   
-Actual time needed to complete: 5 minutes   
-
-Feature: 5 - As a user, I want a simple, clean looking UI so that my application is easy to navigate.  
-Estimate of time needed to complete: 60 minutes   
-Start time: 3:30 PM   
-Finish time: 7:30 PM  
-Actual time needed to complete: 4 hours (took forever to figure out that route was wrong, which causes CSS not to be displayed on a single page)
+### Change Log
+11.10.20 - Feature 1
+11.11.20 - Feature 1 completed and typo fixed
+11.12.20 - Feature 2 done
 
 ## Credits and Collaborations
-Lab12 Code Partner: Cody Carpenter
+Lab13 Code Partner: Cody Carpenter
