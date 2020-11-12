@@ -4,9 +4,9 @@
         <%- include('../../layout/head') %>
     </head>
 <body>
-    <div id="header">
-        <h1>Best Books!</h1>
-    </div>
+    <header>
+        <%- include('../../layout/header') %>
+    </header>
     <div id="subheader">
         <h2>Search by Title or Author</h2>
     </div>
@@ -17,21 +17,21 @@
                     <input id="search2" type="text" name="search" placeholder="Enter a title or author">
                 </label>
             </div>
-            <div id="title">
+            <div id="titleClick">
                 <label>
                     <span>Title</span>
                     <input type="radio" name="search" value="title">
                 </label>
             </div>   
-            <div id="author">
+            <div id="authorClick">
                 <label>
                     <span>Author</span>
                     <input type="radio" name="search" value="author">
                 </label>
             </div>
-            <div id="button">
-                <button>Search the Google Books API</button>
-            </div>
+            <!-- <div> -->
+                <button id="searchButton">Search the Google Books API</button>
+            <!-- </div> -->
         </fieldset>
     </form>
 </body>

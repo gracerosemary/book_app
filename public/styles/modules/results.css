@@ -1,0 +1,89 @@
+    #subheader {
+        font-size: 24px;
+        background-color: #84AEAD;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #55455F;
+        text-align: center;
+        outline: solid .5px #55455F;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 30%;
+        height: 40px;
+        line-height: 40px;
+    }
+
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px;
+    }
+
+    #title {
+        font-size: 20px;
+        background-color: #ABC8C7;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #55455F;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px;
+        outline: solid .5px #55455F;
+        width: 40%;
+        height: 40px;
+        overflow: scroll;
+    }
+
+    h3 {
+        font-size: 18px;
+        background-color: #ABC8C7;
+        color: #55455F;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px;
+        outline: solid .5px #55455F;
+        width: 25%;
+        height: 30px;
+        line-height: 30px;
+        overflow: scroll;
+    }
+
+    div {
+        font-size: 12px;
+        background-color: #84AEAD;
+        color: #55455F;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px;
+        outline: solid .5px #55455F;
+        width: 40%;
+        height: 70px;
+        overflow: scroll;
+    }
+
+    button {
+        font-size: 14px;
+        background-color: #ABC8C7;
+        color: #55455F;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        width: 20%;
+        height: 20px;
+        line-height: 20px;
+        overflow: scroll;
+    }
+
+    button:hover {
+        background-color: #A5B5BF;
+        color: #F2FDFF;
+    }
+
+    div.hide {
+        display: none;
+    }
+

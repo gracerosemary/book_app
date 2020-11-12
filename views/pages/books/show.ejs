@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <%- include ('../../layout/head') %>
+        <%- include('../../layout/head') %>
     </head>
 <body class="detail">
     <header>
+            <%- include('../../layout/header') %>
     </header>
     <%- include('detail', {book: book}) %>
+    <section>
+        <ul>
+            <li>
+                <div id="update">
+                    <form id="update" action="/edit/<%=book.id%>?_method=PUT" method="POST">
+                        <p id="update"> Fill out the form below to update the details of this book!</p>
+                        <%- include('../../layout/edit')%>
+                        <button id="updateDetails" type="submit">Update Details</button>
+                    </form>
+                </div>
+                <form id="delete" action="/delete/<%=book.id%>?_method=DELETE" method="POST">
+                    <div class="hide">
+                        <%- include('../../layout/edit')%>
+                    </div>
+                    <button id="delete" type="submit">Return book!  [DELETE]</button>
+                </form>
+            </li>
+        </ul>
+    </section>
+        <a class="detail" href="/">Library is closing in 10 minutes. [Go home]</a>
 </body>
 </html>

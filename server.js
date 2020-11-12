@@ -6,6 +6,8 @@ const express = require('express');
 const superagent = require('superagent');
 const cors = require('cors');
 const pg = require('pg');
+const methodOverride = require('method-override');
+const { response } = require('express');
 
 // configure env file to allow variables to be listened to
 require('dotenv').config();
@@ -28,12 +30,16 @@ app.use(express.urlencoded({ extended: true }));
 // set default view engine and what we're using to view (ejs)
 app.set('view engine', 'ejs');
 
+app.use(methodOverride('_method'));
+
 // routes
 app.get('/', home);
 app.get('/searches/new', newSearch);
 app.post('/searches', bookSearch);
 app.get('/books/:id', singleBook);
 app.post('/books', addBook);
+app.put('/edit/:id', updateDetails);
+app.delete('/delete/:id', deleteBook);
 app.get('/error', errorHandler);
 
 // Handlers
@@ -54,24 +60,45 @@ function singleBook(request, response) {
   // console.log(request.params.id);
   const SQL = 'SELECT * FROM books WHERE id=$1';
   const params = [request.params.id];
-  console.log('testing check check');
+  // console.log('testing check check');
   client.query(SQL, params)
     .then(results => {
       console.log(results.rows);
-      response.render('pages/books/detail', { book: results.rows[0]});
+      response.render('pages/books/show', { book: results.rows[0]});
     });
 }
 
 function addBook(request, response) {
   const SQL = 'INSERT INTO books (title, author, description, isbn, image) VALUES ($1, $2, $3, $4, $5) RETURNING id';
   const params = [request.body.title, request.body.author, request.body.description, request.body.isbn, request.body.image];
-  console.log('is this thing on?');
+  // console.log('is this thing on?');
   client.query(SQL, params)
   .then(results => {
       console.log(results);
-      // response.status(200).redirect('pages/books');
-      // results.row retrieves from db
       response.status(200).redirect(`/books/${results.rows[0].id}`);
+      // response.status(200).redirect('/');
+    });
+}
+
+function updateDetails(request, response) {
+  console.log('hi there');
+  console.log(request.body);
+  const SQL = 'UPDATE books SET title = $1, author = $2, description = $3, isbn = $4 WHERE id = $5';
+  const params = [request.body.title, request.body.author, request.body.description, request.body.isbn, request.params.id];
+
+  client.query(SQL, params)
+    .then(books => {
+      response.status(200).redirect(`/books/${request.params.id}`);
+    });
+}
+
+function deleteBook(request, response) {
+  const SQL = 'DELETE from books WHERE id = $1';
+  const params = [request.params.id];
+
+  client.query(SQL, params)
+    .then(results => {
+      response.status(200).redirect('/');
     });
 }
 
@@ -118,14 +145,14 @@ function Book(obj) {
   this.title = obj.volumeInfo.title ? obj.volumeInfo.title : 'Title not available';
   this.author = obj.volumeInfo.authors ? obj.volumeInfo.authors : 'Author(s) not available';
   this.description = obj.volumeInfo.description ? obj.volumeInfo.description : 'Description not available';
-  this.isbn = obj.volumeInfo.industryIdentifiers.identifiers ? obj.volumeInfo.industryIdentifiers.identifiers  : 'ISBN not available';
+  this.isbn = obj.volumeInfo.industryIdentifiers ? obj.volumeInfo.industryIdentifiers.identifiers  : 'ISBN not available';
 }
 
 // create our postgres client
 const client = new pg.Client(process.env.DATABASE_URL);
 client.connect();
 client.on('error', err => console.log(err));
-console.log(client.connectionParameters);
+// console.log(client.connectionParameters);
 
 // start our server
 app.listen(PORT, () => console.log(`Now listening on port ${PORT}.`));
