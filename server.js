@@ -7,6 +7,7 @@ const superagent = require('superagent');
 const cors = require('cors');
 const pg = require('pg');
 const methodOverride = require('method-override');
+const { response } = require('express');
 
 // configure env file to allow variables to be listened to
 require('dotenv').config();
@@ -38,6 +39,7 @@ app.post('/searches', bookSearch);
 app.get('/books/:id', singleBook);
 app.post('/books', addBook);
 app.put('/edit/:id', updateDetails);
+app.delete('/delete/:id', deleteBook);
 app.get('/error', errorHandler);
 
 // Handlers
@@ -73,10 +75,8 @@ function addBook(request, response) {
   client.query(SQL, params)
   .then(results => {
       console.log(results);
-      // response.status(200).redirect('pages/books');
-      // results.row retrieves from db
-      // response.status(200).redirect(`/books/${results.rows[0].id}`);
-      response.status(200).redirect('/');
+      response.status(200).redirect(`/books/${results.rows[0].id}`);
+      // response.status(200).redirect('/');
     });
 }
 
@@ -89,6 +89,16 @@ function updateDetails(request, response) {
   client.query(SQL, params)
     .then(books => {
       response.status(200).redirect(`/books/${request.params.id}`);
+    });
+}
+
+function deleteBook(request, response) {
+  const SQL = 'DELETE from books WHERE id = $1';
+  const params = [request.params.id];
+
+  client.query(SQL, params)
+    .then(results => {
+      response.status(200).redirect('/');
     });
 }
 

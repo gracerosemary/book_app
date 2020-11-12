@@ -29,9 +29,8 @@
         margin-right: auto;
         margin-bottom: 10px;
         outline: solid .5px #55455F;
-        width: 30%;
+        width: 40%;
         height: 40px;
-        line-height: 40px;
         overflow: scroll;
     }
 
@@ -59,8 +58,8 @@
         margin-right: auto;
         margin-bottom: 10px;
         outline: solid .5px #55455F;
-        width: 30%;
-        height: 50px;
+        width: 40%;
+        height: 70px;
         overflow: scroll;
     }
 

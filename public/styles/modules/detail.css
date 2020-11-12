@@ -31,7 +31,7 @@
         margin-left: auto;
         margin-right: auto;
         margin-top: 10px;
-        width: 100%;
+        width: 480px;
         font-size: 16px;
         background-color: #ABC8C7;
         color: #55455F;
@@ -55,15 +55,20 @@
         outline: solid .5px #55455F;
         margin-top: 30px;
         width: 400px;
-        height: 80px;
+        height: 120px;
         overflow: scroll;
+    }
+
+    p#update {
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 
     form#update {
         margin-top: 10px;
     }
 
-    button#updateDetails {
+    button#updateDetails, button#delete {
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -114,7 +119,7 @@
         margin-left: auto;
         margin-right: auto;
         margin-top: 10px;
-        width: 100%;
+        width: 850px;
         font-size: 16px;
         background-color: #ABC8C7;
         color: #55455F;
@@ -138,8 +143,13 @@
         outline: solid .5px #55455F;
         margin-top: 30px;
         width: 850px;
-        height: 100px;
+        height: 140px;
         overflow: scroll;
+    }
+
+    p#update {
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 
     form#update {
@@ -147,14 +157,14 @@
         
     }
 
-    button#updateDetails {
+    button#updateDetails, button#delete {
         display: block;
         margin-left: auto;
         margin-right: auto;
         margin-top: 10px;
         margin-bottom: 10px;
         width: 30%;
-        font-size: 12px;
+        font-size: 16px;
         background-color: #ABC8C7;
         color: #55455F;
         border-radius: 8px;
